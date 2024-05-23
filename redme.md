@@ -132,6 +132,6 @@ Provided custom error messages for better debugging and user experience.
 
 3. use this command for run the file.
 
-    npm run start
+    npm start
 
 if your wan to go for an api doc go on this url => http://localhost:5000/api-docs
