@@ -76,4 +76,4 @@ Provided custom error messages for better debugging and user experience.
 
     npm run start
 
-if your wan to go for an api doc go this url => http://localhost:5000/api-docs
+if your wan to go for an api doc go on this url => http://localhost:5000/api-docs
