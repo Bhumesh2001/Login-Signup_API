@@ -66,7 +66,7 @@ exports.signup = async (req, res) => {
         };
         const User_data = new User({ ...data, password: await bcrypt.hash(password, saltRound) });
         await User_data.save();
-        sendEmail(req.body);
+        sendEmail(req.body, process.env.PORT);
         res.status(201).send({
             success: true,
             message: 'Account created successfully...'
@@ -211,7 +211,7 @@ exports.emailConfirmation = async (req, res) => {
     };
 };
 
-async function sendEmail(info) {
+async function sendEmail(info, PORT) {
     try {
         const body = `
         <strong>Hello ${info.username}</strong>,
@@ -225,7 +225,7 @@ async function sendEmail(info) {
         <b>Email:</b> ${info.email} 
 
         <p>Just click the link below to confirm your email address and get started.</p>
-        <a href="http://localhost:5000/api/confirm?email=${encodeURI(info.email)}">Click Here</a>
+        <a href="http://localhost:${PORT}/api/confirm?email=${encodeURI(info.email)}">Click Here</a>
 
         <p>If you've got any questions or need more help, just drop a line to our support team 
         at hr.innobyteservices@gmail.com or simply hit reply to this email.</p>
